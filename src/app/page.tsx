@@ -1,3 +1,9 @@
-export default function HomePage() {
-  return <h1>Olá d e dentro do Next JS</h1>;
+import { Header } from '@/components/Header';
+
+export default async function HomePage() {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
