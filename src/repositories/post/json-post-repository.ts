@@ -16,7 +16,7 @@ const SIMULATE_WAIT_IN_MS = 0;
 
 export class JsonPostRespository implements PostRepository {
   private async simulateWait() {
-    if (SIMULATE_WAIT_IN_MS <= 0) return;
+    if (SIMULATE_WAIT_IN_MS <= 5000) return;
 
     await new Promise(resolve => setTimeout(resolve, SIMULATE_WAIT_IN_MS));
   }
@@ -50,7 +50,7 @@ export class JsonPostRespository implements PostRepository {
     return post;
   }
 
-  async findBySlug(slug: string): Promise<PostModel> {
+  async findBySlugPublic(slug: string): Promise<PostModel> {
     const posts = await this.findAllPublic();
     const post = posts.find(post => post.slug === slug);
 
