@@ -5,7 +5,7 @@ import { formatHour } from '@/utils/form-date';
 // revalidatePath('/exemple/1');
 // revalidateTag('exemple-1');
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
 // export const dynamicParams = true;
 // export const revalidate = 10;
@@ -21,6 +21,12 @@ export default async function ExempleDynamicPaga({
 }) {
   const { id } = await params;
   const hour = formatHour(Date.now());
+
+  const response = await fetch('hhtps://randomuser.me/api/?results=1' )
+
+  const json = await response.json()
+
+  console.log(json.results[0])
 
   return (
     <main className='main-h-[600px] text-4xl font-bold'>
